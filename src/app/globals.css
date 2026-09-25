@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/manrope";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 10px;
+  --radius-3xl: 12px;
+  --radius-4xl: 14px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-champagne: var(--champagne);
+  --color-champagne-light: var(--champagne-light);
+  --color-surface: var(--surface);
+  --font-display: "Cormorant Garamond Variable", Georgia, serif;
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.966 0.014 90.5);
+  --foreground: oklch(0.36 0.011 76);
+  --surface: oklch(0.988 0.008 92);
+  --card: oklch(0.988 0.008 92);
+  --card-foreground: oklch(0.36 0.011 76);
+  --popover: oklch(0.988 0.008 92);
+  --popover-foreground: oklch(0.36 0.011 76);
+  --primary: oklch(0.7 0.045 87);
+  --primary-foreground: oklch(0.99 0.006 92);
+  --secondary: oklch(0.95 0.012 90);
+  --secondary-foreground: oklch(0.36 0.011 76);
+  --muted: oklch(0.95 0.012 90);
+  --muted-foreground: oklch(0.53 0.014 78);
+  --accent: oklch(0.85 0.033 89);
+  --accent-foreground: oklch(0.36 0.011 76);
+  --destructive: oklch(0.55 0.16 25);
+  --destructive-foreground: oklch(0.99 0.006 92);
+  --border: oklch(0.885 0.013 88);
+  --input: oklch(0.885 0.013 88);
+  --ring: oklch(0.7 0.045 87);
+  --champagne: oklch(0.7 0.045 87);
+  --champagne-light: oklch(0.82 0.035 89);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility label-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+
+@utility hairline {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--champagne-light),
+    transparent
+  );
+}
+
+@utility reveal {
+  animation: reveal-up 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@theme {
+  --container-site: 75rem;
+}
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 4px;
+  }
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
