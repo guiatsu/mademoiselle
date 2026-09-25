@@ -47,13 +47,23 @@ export default function Page() {
           Abrir no Google Agenda
         </a>
       </div>
-      <div className="mt-10 overflow-hidden rounded-lg border border-border bg-surface">
+      <div className="mt-14 border-t border-champagne-light/70 pt-8">
+        <p className="label-eyebrow">Disponibilidade</p>
+        <h2 className="mt-3 font-display text-2xl font-light sm:text-3xl">
+          Consulte os horários na agenda
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          A agenda abaixo ajuda você a consultar a disponibilidade. A
+          confirmação do atendimento é feita pela nossa equipe no WhatsApp.
+        </p>
+      </div>
+      <div className="mt-8 overflow-hidden rounded-lg border border-border bg-surface">
         <iframe
           src={calendarEmbedUrl}
           title="Agenda da Mademoiselle no Google Agenda"
           width="1200"
           height="800"
-          className="h-200 w-full border-0"
+          className="h-[680px] w-full border-0 sm:h-[720px]"
         />
       </div>
       <p className="mt-4 text-sm text-muted-foreground">

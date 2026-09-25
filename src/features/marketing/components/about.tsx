@@ -1,5 +1,6 @@
 import Image from "next/image";
 import professionalImage from "@/features/marketing/assets/professional.jpg";
+
 export function About() {
   return (
     <section id="sobre" className="py-24 sm:py-28">
@@ -16,16 +17,6 @@ export function About() {
               className="h-[420px] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.03] sm:h-[560px]"
             />
           </div>
-          <div className="mt-6 rounded-md border border-border bg-surface p-6">
-            <p className="font-display text-lg">Atendimento personalizado</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Estética avançada
-            </p>
-            <div className="my-4 hairline" />
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              Informações sobre a equipe serão disponibilizadas em breve.
-            </p>
-          </div>
         </div>
 
         <div className="order-1 lg:order-2">
@@ -39,6 +30,15 @@ export function About() {
             protocolos personalizados e experiências que respeitam a
             individualidade de cada paciente.
           </p>
+          <div className="mt-8 max-w-lg border-t border-champagne-light/70 pt-5">
+            <p className="font-display text-lg">Atendimento personalizado</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Estética avançada
+            </p>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              Informações sobre a equipe serão disponibilizadas em breve.
+            </p>
+          </div>
         </div>
       </div>
     </section>

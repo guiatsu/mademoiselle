@@ -30,8 +30,8 @@ export function Contact() {
       </div>
       <div className="mx-auto mt-16 max-w-site px-6">
         <div className="overflow-hidden rounded-lg border border-border bg-background">
-          <div className="flex flex-col justify-between gap-6 p-6 sm:p-8 lg:flex-row lg:items-center">
-            <div>
+          <div className="lg:grid lg:grid-cols-[0.35fr_0.65fr] lg:items-stretch">
+            <div className="flex flex-col justify-center p-6 sm:p-8">
               <h3 className="font-display text-2xl font-light">
                 Venha nos visitar
               </h3>
@@ -46,26 +46,26 @@ export function Contact() {
                 <Phone className="size-4" aria-hidden="true" />
                 {CONTACT.phone}
               </a>
+              <a
+                href={CONTACT.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex justify-center self-start rounded-md border border-champagne/70 px-6 py-3 text-sm text-foreground transition-colors hover:bg-champagne/10"
+              >
+                Abrir no Google Maps
+              </a>
             </div>
-            <a
-              href={CONTACT.mapsHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex justify-center rounded-md border border-champagne/70 px-6 py-3 text-sm text-foreground transition-colors hover:bg-champagne/10"
-            >
-              Abrir no Google Maps
-            </a>
+            <iframe
+              title="Mapa do endereço da Mademoiselle Estética Avançada"
+              src={`https://www.google.com/maps?q=${mapQuery}&z=17&output=embed&hl=pt-BR`}
+              width="1200"
+              height="400"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="h-80 w-full border-0 border-t border-border sm:h-100 lg:h-[360px] lg:border-t-0 lg:border-l"
+            />
           </div>
-          <iframe
-            title="Mapa do endereço da Mademoiselle Estética Avançada"
-            src={`https://www.google.com/maps?q=${mapQuery}&z=17&output=embed&hl=pt-BR`}
-            width="1200"
-            height="400"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-            className="h-80 w-full border-0 border-t border-border sm:h-100"
-          />
         </div>
       </div>
     </section>

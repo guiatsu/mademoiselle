@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="mx-auto max-w-site px-6 pt-16 pb-20 sm:pt-24 sm:pb-28"
+      className="mx-auto max-w-site px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-20"
     >
       <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
         <div className="reveal">
@@ -34,7 +34,7 @@ export function Hero() {
 
         <div className="relative reveal">
           <div
-            className="absolute -inset-3 rounded-lg border border-champagne-light/50"
+            className="absolute -inset-2 rounded-lg border border-champagne-light/50"
             aria-hidden
           />
           <div className="relative overflow-hidden rounded-lg">
