@@ -7,4 +7,5 @@ export const CONTACT = {
   phone: "+55 61 9177-7114",
   phoneHref: "tel:+556191777114",
   whatsappHref: "https://wa.me/556191777114",
+  instagramHref: "https://www.instagram.com/centro.mademoiselle/",
 };

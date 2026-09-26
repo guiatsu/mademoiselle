@@ -1,26 +1,40 @@
+import { Flower2, HeartHandshake, SlidersHorizontal } from "lucide-react";
 import { VALUES } from "@/features/marketing/content";
+
+const valueIcons = [Flower2, SlidersHorizontal, HeartHandshake];
 
 export function Values() {
   return (
-    <section className="border-y border-border/70 bg-surface py-24 sm:py-28 lg:py-21">
+    <section className="border-y border-border/70 bg-surface py-section-compact">
       <div className="mx-auto max-w-site px-6">
-        <div className="grid gap-14 sm:grid-cols-3 sm:gap-10">
-          {VALUES.map((v, i) => (
-            <div
-              key={v.title}
-              className="flex flex-col items-center text-center"
-            >
-              <span className="font-display text-sm text-champagne">
-                0{i + 1}
-              </span>
-              <h3 className="mt-4 font-display text-2xl font-light">
-                {v.title}
-              </h3>
-              <p className="mx-auto mt-3 max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
-                {v.text}
-              </p>
-            </div>
-          ))}
+        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <h2 className="font-display text-3xl leading-tight font-light sm:text-4xl">
+            Valores que orientam cada cuidado.
+          </h2>
+          <div className="grid gap-9 sm:grid-cols-3 sm:gap-0">
+            {VALUES.map((value, index) => {
+              const Icon = valueIcons[index] ?? Flower2;
+
+              return (
+                <div
+                  key={value.title}
+                  className="sm:px-6 sm:first:pl-0 sm:last:pr-0 xl:border-l xl:border-border xl:first:border-l-0"
+                >
+                  <Icon
+                    className="size-5 text-champagne"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-5 font-display text-2xl font-light">
+                    {value.title}
+                  </h3>
+                  <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
+                    {value.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -7,11 +7,10 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="border-t border-border/70 bg-surface py-28 sm:py-32"
+      className="border-t border-border/70 bg-surface py-section-hero"
     >
       <div className="mx-auto max-w-2xl px-6 text-center">
-        <p className="label-eyebrow">Contato</p>
-        <h2 className="mt-6 font-display text-3xl leading-tight font-light sm:text-5xl">
+        <h2 className="font-display text-3xl leading-tight font-light sm:text-5xl">
           Seu cuidado começa com uma conversa.
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-[0.98rem] leading-relaxed text-muted-foreground">
@@ -22,7 +21,7 @@ export function Contact() {
           href={CONTACT.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-flex items-center justify-center gap-2 rounded-md bg-champagne px-8 py-4 text-[0.8rem] tracking-[0.12em] text-primary-foreground transition-colors duration-300 hover:bg-champagne/85"
+          className="mt-10 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-[0.8rem] tracking-[0.12em] text-primary-foreground transition-[background-color,transform] duration-150 ease-out hover:bg-primary/90 active:scale-[0.98]"
         >
           <MessageCircle className="size-4" aria-hidden="true" />
           Agendar pelo WhatsApp
@@ -50,7 +49,7 @@ export function Contact() {
                 href={CONTACT.mapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex justify-center self-start rounded-md border border-champagne/70 px-6 py-3 text-sm text-foreground transition-colors hover:bg-champagne/10"
+                className="mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-md border border-champagne/70 px-6 py-3 text-sm text-foreground transition-[background-color,transform] duration-150 ease-out hover:bg-champagne/10 active:scale-[0.98]"
               >
                 Abrir no Google Maps
               </a>

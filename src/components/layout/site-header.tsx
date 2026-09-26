@@ -32,7 +32,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.8rem] tracking-[0.08em] text-muted-foreground transition-colors duration-300 hover:text-champagne"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center px-2 text-[0.8rem] tracking-[0.08em] text-muted-foreground transition-colors duration-300 hover:text-champagne"
             >
               {item.label}
             </a>
@@ -42,7 +42,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-3">
           <Link
             href="/agendar"
-            className="hidden rounded-md bg-champagne px-5 py-2.5 text-[0.78rem] tracking-[0.1em] text-primary-foreground transition-all duration-300 hover:bg-champagne/85 md:inline-block"
+            className="hidden min-h-11 items-center rounded-md bg-primary px-5 py-2.5 text-[0.78rem] tracking-[0.1em] text-primary-foreground transition-[background-color,transform] duration-150 ease-out hover:bg-primary/90 active:scale-[0.98] md:inline-flex"
           >
             Agendar avaliação
           </Link>

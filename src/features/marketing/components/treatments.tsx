@@ -4,6 +4,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
+  CarouselProgress,
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { TREATMENTS } from "@/features/marketing/content";
@@ -12,13 +13,12 @@ export function Treatments() {
   return (
     <section
       id="tratamentos"
-      className="border-t border-border/70 bg-surface py-24 sm:py-28"
+      className="border-t border-border/70 bg-surface py-section-standard"
     >
       <div className="mx-auto max-w-site px-6">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <p className="label-eyebrow">Tratamentos</p>
-            <h2 className="mt-5 font-display text-3xl leading-tight font-light sm:text-4xl">
+            <h2 className="font-display text-3xl leading-tight font-light sm:text-4xl">
               Tratamentos pensados para você
             </h2>
             <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
@@ -33,14 +33,14 @@ export function Treatments() {
           aria-label="Tratamentos disponíveis"
           className="mt-8 sm:px-12"
         >
-          <CarouselContent className="-ml-6">
+          <CarouselContent className="-ml-6 items-stretch">
             {TREATMENTS.map((t) => (
               <CarouselItem
                 key={t.name}
-                className="basis-[78vw] pl-6 sm:basis-[360px]"
+                className="flex basis-[78vw] pl-6 sm:basis-[360px]"
               >
-                <article className="group flex h-[500px] flex-col overflow-hidden rounded-lg border border-border bg-background sm:h-[550px]">
-                  <div className="overflow-hidden">
+                <article className="group flex h-full w-full flex-col overflow-hidden rounded-4xl border border-border bg-background">
+                  <div className="aspect-[9/11] overflow-hidden">
                     <Image
                       src={t.image}
                       sizes="(min-width: 640px) 360px, 78vw"
@@ -48,7 +48,7 @@ export function Treatments() {
                       width={900}
                       height={1100}
                       loading="lazy"
-                      className="h-[300px] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04] sm:h-[340px]"
+                      className="h-full w-full image-zoom object-cover"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-7">
@@ -60,7 +60,7 @@ export function Treatments() {
                     </p>
                     <a
                       href="#contato"
-                      className="mt-auto inline-block pt-6 text-[0.7rem] tracking-[0.16em] text-champagne uppercase transition-opacity duration-300 group-hover:opacity-70"
+                      className="mt-auto inline-block pt-6 text-[0.7rem] tracking-[0.16em] text-champagne uppercase transition-opacity duration-200 group-hover:opacity-70"
                     >
                       Saiba mais
                     </a>
@@ -69,6 +69,7 @@ export function Treatments() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselProgress className="mt-6 sm:hidden" />
           <CarouselPrevious
             className="-left-1 hidden sm:inline-flex"
             aria-label="Ver tratamento anterior"

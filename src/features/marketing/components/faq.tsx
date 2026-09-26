@@ -7,11 +7,10 @@ import {
 } from "@/components/ui/accordion";
 export function Faq() {
   return (
-    <section id="duvidas" className="py-24 sm:py-28">
+    <section id="duvidas" className="py-section-standard">
       <div className="mx-auto grid max-w-site gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
-          <p className="label-eyebrow">Dúvidas</p>
-          <h2 className="mt-5 font-display text-3xl font-light sm:text-4xl">
+          <h2 className="font-display text-3xl font-light sm:text-4xl">
             Perguntas frequentes
           </h2>
         </div>

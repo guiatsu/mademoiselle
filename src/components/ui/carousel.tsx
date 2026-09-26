@@ -28,6 +28,8 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
+  selectedIndex: number;
+  slideCount: number;
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -60,11 +62,15 @@ function Carousel({
   );
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [slideCount, setSlideCount] = React.useState(0);
 
   const onSelect = React.useCallback((carouselApi: CarouselApi) => {
     if (!carouselApi) return;
     setCanScrollPrev(carouselApi.canScrollPrev());
     setCanScrollNext(carouselApi.canScrollNext());
+    setSelectedIndex(carouselApi.selectedScrollSnap());
+    setSlideCount(carouselApi.scrollSnapList().length);
   }, []);
 
   const scrollPrev = React.useCallback(() => {
@@ -118,6 +124,8 @@ function Carousel({
         scrollNext,
         canScrollPrev,
         canScrollNext,
+        selectedIndex,
+        slideCount,
       }}
     >
       <div
@@ -131,6 +139,39 @@ function Carousel({
         {children}
       </div>
     </CarouselContext.Provider>
+  );
+}
+
+function CarouselProgress({ className }: { className?: string }) {
+  const { selectedIndex, slideCount } = useCarousel();
+
+  if (slideCount < 2) return null;
+
+  return (
+    <div
+      className={cn("flex items-center gap-3", className)}
+      aria-live="polite"
+    >
+      <span className="font-display text-sm text-foreground">
+        {String(selectedIndex + 1).padStart(2, "0")}
+        <span className="text-muted-foreground"> / </span>
+        {String(slideCount).padStart(2, "0")}
+      </span>
+      <div className="flex gap-1" aria-hidden="true">
+        {Array.from({ length: slideCount }, (_, index) => (
+          <span
+            key={index}
+            className={cn(
+              "h-px w-4 bg-border transition-colors duration-200",
+              index === selectedIndex && "bg-champagne",
+            )}
+          />
+        ))}
+      </div>
+      <span className="sr-only">
+        Tratamento {selectedIndex + 1} de {slideCount}
+      </span>
+    </div>
   );
 }
 
@@ -187,7 +228,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-9 rounded-full border-champagne/70 bg-background text-foreground shadow-none transition-colors hover:bg-champagne/10 hover:text-foreground",
+        "absolute size-11 rounded-full border-champagne/70 bg-background text-foreground shadow-none transition-colors hover:bg-champagne/10 hover:text-foreground",
         orientation === "horizontal"
           ? "top-1/2 -left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -217,7 +258,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-9 rounded-full border-champagne/70 bg-background text-foreground shadow-none transition-colors hover:bg-champagne/10 hover:text-foreground",
+        "absolute size-11 rounded-full border-champagne/70 bg-background text-foreground shadow-none transition-colors hover:bg-champagne/10 hover:text-foreground",
         orientation === "horizontal"
           ? "top-1/2 -right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -240,4 +281,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselProgress,
 };

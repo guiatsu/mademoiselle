@@ -1,3 +1,4 @@
+import { Camera, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/features/marketing/contact-details";
 
 export function SiteFooter() {
@@ -22,11 +23,25 @@ export function SiteFooter() {
                 href={CONTACT.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block underline underline-offset-4"
+                className="inline-flex items-center gap-2 underline underline-offset-4"
               >
+                <MessageCircle
+                  className="size-4"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
                 Fale pelo WhatsApp
               </a>
             </address>
+            <a
+              href={CONTACT.instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 underline underline-offset-4"
+            >
+              <Camera className="size-4" strokeWidth={1.5} aria-hidden="true" />
+              @centro.mademoiselle
+            </a>
           </div>
           <div>
             <h2 className="text-sm">Atendimento</h2>

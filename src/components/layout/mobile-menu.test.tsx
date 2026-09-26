@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { expect, it } from "vitest";
 import { MobileMenu } from "@/components/layout/mobile-menu";
-it("opens with the keyboard and closes after navigation or Escape", async () => {
+it("moves focus into the menu and returns it to the trigger on close", async () => {
   const user = userEvent.setup();
   render(<MobileMenu />);
   await user.tab();
@@ -11,9 +11,23 @@ it("opens with the keyboard and closes after navigation or Escape", async () => 
     "aria-expanded",
     "true",
   );
-  await user.click(screen.getByRole("link", { name: "Tratamentos" }));
-  expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
-  await user.click(screen.getByRole("button", { name: "Abrir menu" }));
+  expect(screen.getByRole("link", { name: "Início" })).toHaveFocus();
   await user.keyboard("{Escape}");
+  expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Abrir menu" })).toHaveFocus();
+});
+
+it("closes when the visitor clicks outside the menu", async () => {
+  const user = userEvent.setup();
+  render(
+    <>
+      <MobileMenu />
+      <button type="button">Fora do menu</button>
+    </>,
+  );
+
+  await user.click(screen.getByRole("button", { name: "Abrir menu" }));
+  await user.click(screen.getByRole("button", { name: "Fora do menu" }));
+
   expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
 });
