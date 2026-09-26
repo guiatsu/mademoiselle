@@ -5,6 +5,24 @@ import tRejuvenescimento from "@/features/marketing/assets/t-rejuvenescimento.jp
 import tBioestimuladores from "@/features/marketing/assets/t-bioestimuladores.jpg";
 import tPele from "@/features/marketing/assets/t-pele.jpg";
 
+export const TESTIMONIAL_EXAMPLES = [
+  {
+    name: "Patrícia Barbosa",
+    quote:
+      "Super recomendo, uma super profissional que sabe o que faz. Tem 3 anos que frequento a clínica, foram vários tratamentos com finalidades distintas, mas sempre muito bem planejados para a minha necessidade. Os resultados têm sido incríveis.",
+  },
+  {
+    name: "Alessandra dias",
+    quote:
+      "A Kathlyn é extremamente profissional, e monta os protocolos com tanto conhecimento e segurança. Fique apaixonada no meu resultado e não largo mais ela!",
+  },
+  {
+    name: "Karol Mello",
+    quote:
+      "Que profissional acolhedora. Ela ouviu minhas queixas e me ofereceu, de fato, um tratamento efetivo ao que buscava. Eu super recomendo.",
+  },
+];
+
 export const TREATMENTS = [
   {
     name: "Harmonização facial",

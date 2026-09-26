@@ -5,11 +5,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 export function Faq() {
   return (
     <section id="duvidas" className="py-section-standard">
-      <div className="mx-auto grid max-w-site gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div>
+      <div className="mx-auto max-w-site px-6">
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-light sm:text-4xl">
             Perguntas frequentes
           </h2>
@@ -18,7 +19,7 @@ export function Faq() {
           type="single"
           collapsible
           defaultValue="faq-0"
-          className="border-t"
+          className="mx-auto mt-12 max-w-3xl border-t"
         >
           {FAQ.map((item, i) => (
             <AccordionItem value={`faq-${i}`} key={item.q}>

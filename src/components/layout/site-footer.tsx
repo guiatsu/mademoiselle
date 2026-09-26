@@ -1,4 +1,4 @@
-import { Camera, MessageCircle } from "lucide-react";
+import { siInstagram, siWhatsapp } from "simple-icons/icons";
 import { CONTACT } from "@/features/marketing/contact-details";
 
 export function SiteFooter() {
@@ -25,11 +25,13 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 underline underline-offset-4"
               >
-                <MessageCircle
-                  className="size-4"
-                  strokeWidth={1.5}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="size-4 fill-current"
                   aria-hidden="true"
-                />
+                >
+                  <path d={siWhatsapp.path} />
+                </svg>
                 Fale pelo WhatsApp
               </a>
             </address>
@@ -39,7 +41,13 @@ export function SiteFooter() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 underline underline-offset-4"
             >
-              <Camera className="size-4" strokeWidth={1.5} aria-hidden="true" />
+              <svg
+                viewBox="0 0 24 24"
+                className="size-4 fill-current"
+                aria-hidden="true"
+              >
+                <path d={siInstagram.path} />
+              </svg>
               @centro.mademoiselle
             </a>
           </div>

@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsAppWidget } from "@/components/layout/whatsapp-widget";
 export default function MarketingLayout({
   children,
 }: {
@@ -16,6 +17,7 @@ export default function MarketingLayout({
       <SiteHeader />
       {children}
       <SiteFooter />
+      <WhatsAppWidget />
     </>
   );
 }

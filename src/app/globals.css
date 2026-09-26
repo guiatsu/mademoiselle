@@ -35,6 +35,7 @@
   --color-champagne: var(--champagne);
   --color-champagne-light: var(--champagne-light);
   --color-surface: var(--surface);
+  --color-taupe-deep: var(--taupe-deep);
   --font-display: "Cormorant Garamond Variable", Georgia, serif;
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
 }
@@ -48,7 +49,7 @@
   --card-foreground: oklch(0.36 0.011 76);
   --popover: oklch(0.988 0.008 92);
   --popover-foreground: oklch(0.36 0.011 76);
-  --primary: oklch(0.56 0.04 87);
+  --primary: oklch(0.7 0.045 87);
   --primary-foreground: oklch(0.99 0.006 92);
   --secondary: oklch(0.95 0.012 90);
   --secondary-foreground: oklch(0.36 0.011 76);
@@ -63,6 +64,7 @@
   --ring: oklch(0.7 0.045 87);
   --champagne: oklch(0.7 0.045 87);
   --champagne-light: oklch(0.82 0.035 89);
+  --taupe-deep: oklch(0.5 0.025 82);
 }
 
 @layer base {
@@ -163,5 +165,45 @@
       transform: none;
       transition-duration: 1ms;
     }
+  }
+}
+
+@layer components {
+  .whatsapp-wave {
+    position: absolute;
+    inset: 8px;
+    border: 2px solid rgb(37 211 102 / 0.72);
+    border-radius: 9999px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.78);
+    animation: whatsapp-wave 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+  }
+
+  .whatsapp-wave-delayed {
+    animation-delay: 1.2s;
+  }
+}
+
+@keyframes whatsapp-wave {
+  0% {
+    opacity: 0.72;
+    transform: scale(0.78);
+  }
+  78%,
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-wave {
+    animation: none;
+    opacity: 0.48;
+    transform: scale(1);
+  }
+  .whatsapp-wave-delayed {
+    display: none;
   }
 }

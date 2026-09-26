@@ -5,10 +5,10 @@ const valueIcons = [Flower2, SlidersHorizontal, HeartHandshake];
 
 export function Values() {
   return (
-    <section className="border-y border-border/70 bg-surface py-section-compact">
+    <section className="border-y border-white/20 bg-taupe-deep py-section-compact">
       <div className="mx-auto max-w-site px-6">
         <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-          <h2 className="font-display text-3xl leading-tight font-light sm:text-4xl">
+          <h2 className="font-display text-3xl leading-tight font-light text-white sm:text-4xl">
             Valores que orientam cada cuidado.
           </h2>
           <div className="grid gap-9 sm:grid-cols-3 sm:gap-0">
@@ -18,17 +18,17 @@ export function Values() {
               return (
                 <div
                   key={value.title}
-                  className="sm:px-6 sm:first:pl-0 sm:last:pr-0 xl:border-l xl:border-border xl:first:border-l-0"
+                  className="sm:px-6 sm:first:pl-0 sm:last:pr-0 xl:border-l xl:border-white/20 xl:first:border-l-0"
                 >
                   <Icon
-                    className="size-5 text-champagne"
+                    className="size-5 text-white"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
-                  <h3 className="mt-5 font-display text-2xl font-light">
+                  <h3 className="mt-5 font-display text-2xl font-light text-white">
                     {value.title}
                   </h3>
-                  <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-white">
                     {value.text}
                   </p>
                 </div>
